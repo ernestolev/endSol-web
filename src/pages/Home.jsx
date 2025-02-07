@@ -1,3 +1,4 @@
+import Lenis from '@studio-freight/lenis'
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './Home.module.css';
 import React, { useRef, useState, useEffect } from 'react';
@@ -12,42 +13,68 @@ export default function Home() {
         offset: ["start start", "end start"]
     });
 
-    const rotation = useTransform(scrollYProgress, [0, 0.4], [0, -45]);
-    const scale = useTransform(scrollYProgress, [0, 0.3], [1, 50]);
+    const rotation = useTransform(scrollYProgress, [0, 0.1], [0, -45]);
+    const scale = useTransform(scrollYProgress, [0, 0.1], [1, 50]);
     const textOpacity = useTransform(scrollYProgress, [0.2, 0.3], [1, 1]);
     const backgroundDarken = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
-    const xPosition = useTransform(scrollYProgress, [0, 0.3], [0, -50]);
+    const xPosition = useTransform(scrollYProgress, [0, 0.1], [0, -50]);
     const yPosition = useTransform(scrollYProgress, [0, 0.4], [0, 0]);
 
     // Section 2 scroll phases
     // Update scroll transforms
-    const nextSectionY = useTransform(scrollYProgress, [0.3, 0.35], ["100vh", "0vh"]);
-    const cornerTitleOpacity = useTransform(scrollYProgress, [0.5, 0.55], [0, 1]);
-    const cornerTitleY = useTransform(scrollYProgress, [0.5, 0.55], [50, 0]);
+    const nextSectionY = useTransform(scrollYProgress, [0.1, 0.15], ["100vh", "0vh"]);
+    const cornerTitleOpacity = useTransform(scrollYProgress, [0.10, 0.16], [0, 1]);
+    const cornerTitleY = useTransform(scrollYProgress, [0.10, 0.15], [50, 0]);
 
-    const item1Opacity = useTransform(scrollYProgress, [0.55, 0.6], [0, 1]);
-    const item1Y = useTransform(scrollYProgress, [0.55, 0.6], [50, 0]);
+    const item1Opacity = useTransform(scrollYProgress, [0.17, 0.19], [0, 1]);
+    const item1Y = useTransform(scrollYProgress, [0.17, 0.19], [50, 0]);
 
-    const item2Opacity = useTransform(scrollYProgress, [0.6, 0.65], [0, 1]);
-    const item2Y = useTransform(scrollYProgress, [0.6, 0.65], [50, 0]);
+    const item2Opacity = useTransform(scrollYProgress, [0.19, 0.21], [0, 1]);
+    const item2Y = useTransform(scrollYProgress, [0.18, 0.21], [50, 0]);
 
-    const item3Opacity = useTransform(scrollYProgress, [0.65, 0.7], [0, 1]);
-    const item3Y = useTransform(scrollYProgress, [0.65, 0.7], [50, 0]);
+    const item3Opacity = useTransform(scrollYProgress, [0.21, 0.23], [0, 1]);
+    const item3Y = useTransform(scrollYProgress, [0.19, 0.23], [50, 0]);
 
     // Section 3 entrance
-    const section3Y = useTransform(scrollYProgress, [0.7, 0.75], ["100vh", "0vh"]);
+    const section3Y = useTransform(scrollYProgress, [0.27, 0.29], ["100vh", "0vh"]);
 
 
-    const section4Y = useTransform(scrollYProgress, [0.85, 0.9], ["100vh", "0vh"]);
-    const section4Opacity = useTransform(scrollYProgress, [0.85, 0.9], [0, 1]);
-    const titleOpacity = useTransform(scrollYProgress, [0.9, 0.92], [0, 1]);
-    const titleY = useTransform(scrollYProgress, [0.9, 0.92], [20, 0]);
+    const section4Y = useTransform(scrollYProgress, [0.30, 0.37], ["100vh", "0vh"]);
+    const section4Opacity = useTransform(scrollYProgress, [0.30, 0.35], [0, 1]);
+    
+    const titleOpacity = useTransform(scrollYProgress, [0.35, 0.37], [0, 1]);
+    
+    const titleY = useTransform(scrollYProgress, [0.36, 0.37], [20, 0]);
     
     const carouselX = useTransform(
         scrollYProgress,
-        [0.92, 1.25], // Increased range
-        ["0%", "-450%"]
+        [0.38, 0.45], // Increased range
+        ["0%", "-30%"]
     );
+
+    useEffect(() => {
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        })
+
+        function raf(time) {
+            lenis.raf(time)
+            requestAnimationFrame(raf)
+        }
+
+        requestAnimationFrame(raf)
+
+        return () => {
+            lenis.destroy()
+        }
+    }, [])
+
     useEffect(() => {
         const unsubscribe = scrollYProgress.onChange(latest => {
             if (latest >= 0.6) {

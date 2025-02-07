@@ -11,7 +11,7 @@
 
 .container {
     position: relative;
-    height: 2500vh;
+    height: 1500vh;
     /* Increased to accommodate new animations */
     overflow-x: hidden;
 }
