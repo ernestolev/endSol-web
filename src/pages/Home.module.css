@@ -1,0 +1,591 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    max-width: 1200px;
+}
+
+
+.container {
+    position: relative;
+    height: 2500vh;
+    /* Increased to accommodate new animations */
+    overflow-x: hidden;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    pointer-events: none;
+}
+
+
+.hero {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #ffffff;
+    transform-origin: 42% center;
+    transition: background-color 0.3s ease;
+}
+
+.title {
+    margin-left: 60px;
+    font-size: 6rem;
+    color: #000;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.description {
+    margin-left: 60px;
+    font-size: 1.2rem;
+    text-align: left;
+    max-width: 600px;
+    color: #000;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.rotatingContainer {
+    background: #000;
+    color: #fff;
+    width: 580px;
+    padding: 0.5rem 2rem;
+    justify-content: center;
+    border-radius: 8px;
+    display: inline-flex;
+}
+
+.rotatingText {
+    color: #ffffff;
+    font-size: 6rem;
+    text-align: center;
+    font-weight: 600;
+    font-family: "Montserrat", serif;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.rotatingTextInner {
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.nextSection {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #000000;
+    z-index: 2;
+}
+
+
+.gridOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgb(0, 0, 0) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+    z-index: 2;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+.cornerTitle {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    z-index: 3;
+    font-size: 2.5rem;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    max-width: 500px;
+    line-height: 1.2;
+}
+
+
+.rightContent {
+
+    z-index: 3;
+    position: absolute;
+    right: 0;
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    padding-right: 4rem;
+}
+
+.rightContent h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, #999);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.rightContent p {
+    font-size: 1rem;
+    line-height: 1.8;
+    font-family: "DM Sans", sans-serif;
+    max-width: 500px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.lavaLamp {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(25px);
+    background: #000;
+}
+
+.lavaBlob1,
+.lavaBlob2,
+.lavaBlob3,
+.lavaBlob4,
+.lavaBlob5,
+.lavaBlob6 {
+    position: absolute;
+    filter: blur(3px);
+    background: linear-gradient(45deg,
+            rgba(220, 220, 220, 0.95),
+            rgba(160, 160, 160, 0.85));
+    box-shadow:
+        inset -8px -8px 25px rgba(0, 0, 0, 0.4),
+        inset 8px 8px 25px rgba(255, 255, 255, 0.4);
+    transform-origin: center center;
+}
+
+.lavaBlob1 {
+    width: 200px;
+    height: 200px;
+    left: 45%;
+}
+
+.lavaBlob2 {
+    width: 180px;
+    height: 180px;
+    left: 35%;
+}
+
+.lavaBlob3 {
+    width: 220px;
+    height: 220px;
+    left: 40%;
+}
+
+.lavaBlob4 {
+    width: 190px;
+    height: 190px;
+    left: 38%;
+}
+
+.lavaBlob5 {
+    width: 210px;
+    height: 210px;
+    left: 42%;
+}
+
+.lavaBlob6 {
+    width: 170px;
+    height: 170px;
+    left: 36%;
+}
+
+.lavaBlob1 {
+    animation: lavaRise1 15s ease-in-out infinite, lavaMorph1 8s ease-in-out infinite;
+}
+
+.lavaBlob2 {
+    animation: lavaRise2 18s ease-in-out infinite, lavaMorph2 9s ease-in-out infinite;
+}
+
+.lavaBlob3 {
+    animation: lavaRise3 20s ease-in-out infinite, lavaMorph3 10s ease-in-out infinite;
+}
+
+.lavaBlob4 {
+    animation: lavaRise4 17s ease-in-out infinite, lavaMorph4 9s ease-in-out infinite;
+}
+
+.lavaBlob5 {
+    animation: lavaRise5 19s ease-in-out infinite, lavaMorph5 11s ease-in-out infinite;
+}
+
+.lavaBlob6 {
+    animation: lavaRise6 16s ease-in-out infinite, lavaMorph6 8s ease-in-out infinite;
+}
+
+@keyframes lavaRise1 {
+    0% {
+        top: 85%;
+        border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+        transform: scale(1);
+    }
+
+    25% {
+        border-radius: 40% 60% 70% 30% / 50% 60% 40% 50%;
+        transform: scale(1.2, 0.8) translateX(-50px);
+    }
+
+    50% {
+        top: 15%;
+        border-radius: 70% 30% 50% 50% / 40% 40% 60% 60%;
+        transform: scale(0.8, 1.2) translateX(30px);
+    }
+
+    75% {
+        border-radius: 30% 70% 40% 60% / 60% 30% 70% 40%;
+        transform: scale(1.1, 0.9) translateX(-20px);
+    }
+
+    100% {
+        top: 85%;
+        border-radius: 60% 40% 40% 60% / 60% 40% 60% 40%;
+        transform: scale(1);
+    }
+}
+
+@keyframes lavaRise2 {
+    0% {
+        top: 80%;
+        border-radius: 50% 50% 30% 70%;
+        transform: scale(1) translateX(20px);
+    }
+
+    25% {
+        border-radius: 70% 30% 50% 50%;
+        transform: scale(1.1, 0.9) translateX(-40px);
+    }
+
+    50% {
+        top: 20%;
+        border-radius: 30% 70% 70% 30%;
+        transform: scale(0.9, 1.1) translateX(50px);
+    }
+
+    75% {
+        border-radius: 40% 60% 30% 70%;
+        transform: scale(1.2, 0.8) translateX(-30px);
+    }
+
+    100% {
+        top: 80%;
+        border-radius: 50% 50% 30% 70%;
+        transform: scale(1) translateX(20px);
+    }
+}
+
+@keyframes lavaRise3 {
+    0% {
+        top: 75%;
+        border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+        transform: scale(1) translateX(-30px);
+    }
+
+    25% {
+        border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+        transform: scale(0.8, 1.2) translateX(40px);
+    }
+
+    50% {
+        top: 25%;
+        border-radius: 30% 70% 70% 30% / 30% 70% 30% 70%;
+        transform: scale(1.2, 0.8) translateX(-50px);
+    }
+
+    75% {
+        border-radius: 70% 30% 40% 60% / 40% 40% 60% 60%;
+        transform: scale(0.9, 1.1) translateX(20px);
+    }
+
+    100% {
+        top: 75%;
+        border-radius: 40% 60% 60% 40% / 70% 30% 70% 30%;
+        transform: scale(1) translateX(-30px);
+    }
+}
+
+@keyframes lavaRise4 {
+    0% {
+        top: 82%;
+        border-radius: 55% 45% 45% 55%;
+        transform: scale(1) translateX(40px);
+    }
+
+    25% {
+        border-radius: 45% 55% 65% 35%;
+        transform: scale(1.15, 0.85) translateX(-30px);
+    }
+
+    50% {
+        top: 18%;
+        border-radius: 65% 35% 45% 55%;
+        transform: scale(0.85, 1.15) translateX(45px);
+    }
+
+    75% {
+        border-radius: 35% 65% 55% 45%;
+        transform: scale(1.1, 0.9) translateX(-40px);
+    }
+
+    100% {
+        top: 82%;
+        border-radius: 55% 45% 45% 55%;
+        transform: scale(1) translateX(40px);
+    }
+}
+
+@keyframes lavaRise5 {
+    0% {
+        top: 78%;
+        border-radius: 45% 55% 35% 65%;
+        transform: scale(1) translateX(-25px);
+    }
+
+    25% {
+        border-radius: 65% 35% 55% 45%;
+        transform: scale(0.9, 1.1) translateX(35px);
+    }
+
+    50% {
+        top: 22%;
+        border-radius: 35% 65% 65% 35%;
+        transform: scale(1.1, 0.9) translateX(-40px);
+    }
+
+    75% {
+        border-radius: 55% 45% 35% 65%;
+        transform: scale(0.95, 1.05) translateX(30px);
+    }
+
+    100% {
+        top: 78%;
+        border-radius: 45% 55% 35% 65%;
+        transform: scale(1) translateX(-25px);
+    }
+}
+
+@keyframes lavaRise6 {
+    0% {
+        top: 88%;
+        border-radius: 65% 35% 50% 50%;
+        transform: scale(1) translateX(35px);
+    }
+
+    25% {
+        border-radius: 50% 50% 65% 35%;
+        transform: scale(1.05, 0.95) translateX(-45px);
+    }
+
+    50% {
+        top: 12%;
+        border-radius: 35% 65% 50% 50%;
+        transform: scale(0.95, 1.05) translateX(40px);
+    }
+
+    75% {
+        border-radius: 50% 50% 35% 65%;
+        transform: scale(1.1, 0.9) translateX(-35px);
+    }
+
+    100% {
+        top: 88%;
+        border-radius: 65% 35% 50% 50%;
+        transform: scale(1) translateX(35px);
+    }
+}
+
+
+.section3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentItem {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.contentItem:not([style*="opacity: 0"]) {
+    transform: translateY(0);
+}
+
+.servicesGrid {
+    display: flex;
+    gap: 2rem;
+    padding: 0 4rem;
+    width: max-content;
+    position: relative;
+    margin-left: 0;
+    will-change: transform;
+}
+
+
+
+.serviceCard {
+    width: 350px;
+    height: 350px;
+    flex-shrink: 0;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 0.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+}
+
+
+.serviceCard h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #000000;
+    font-family: "Montserrat", sans-serif;
+    margin: 1rem 0;
+}
+
+.serviceCard p {
+    font-size: 1.1rem;
+    color: #666;
+    font-family: "Montserrat", sans-serif;
+}
+
+.serviceText {
+    font-size: clamp(3rem, 5vw, 6rem);
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    opacity: 0;
+    text-align: center;
+    transform-origin: center;
+}
+
+.section4 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000000;
+    color: #fff;
+    z-index: 5;
+    opacity: 0;
+}
+
+.servicesContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem;
+}
+
+.servicesContainer h2{
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    font-family: "Montserrat", sans-serif;
+}
+
+
+.serviceGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+}
+
+.servicesGrids {
+    display: flex;
+    gap: 2rem;
+    padding: 0 4rem;
+    width: max-content;
+}
+
+
+
+.subtypesBox {
+    background: #000;
+    padding: 1.5rem;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtypesBox span {
+    position: absolute;
+    color: #fff;
+    font-size: 2rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    left: 0;
+}
+
+.viewButton {
+    position: absolute;
+    bottom: 2rem;
+    margin: 0 32px;
+    width: calc(100% - 4rem);
+}
+
+.viewButton:hover {
+    border: 1px solid #ffffff;
+    background: #000000;
+    color: #fff;
+}
+
+.servicesWrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
