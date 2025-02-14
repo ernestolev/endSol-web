@@ -11,8 +11,7 @@ export default function Navbar({ onLanguageChange }) {
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", latest => {
-      // Show navbar in section 1 (start) and section 10
-      if (latest <= 0.01 || latest >= 0.57) {
+      if (latest <= 0.01 || (latest >= 0.57 && latest <= 0.85)) {
         setShowNavbar(true);
       } else {
         setShowNavbar(false);
@@ -23,7 +22,12 @@ export default function Navbar({ onLanguageChange }) {
   }, [scrollYProgress]);
 
   return (
-    <motion.nav className={styles.navbar}>
+    <motion.nav 
+      className={styles.navbar}
+      initial={{ y: 0 }}
+      animate={{ y: showNavbar ? 0 : -100 }}
+      transition={{ duration: 0.5 }}
+    >
       <Link to="/" className={styles.logo}>END</Link>
       <div className={styles.navLinks}>
         <Link to="/about">About</Link>
@@ -32,9 +36,11 @@ export default function Navbar({ onLanguageChange }) {
         <Link to="/blog">Blog</Link>
       </div>
       <div className={styles.rightSection}>
-        <button onClick={onLanguageChange} className={styles.langButton}>
-          ES
-        </button>
+        <Link to="/" className={styles.langButton}>
+          <button className={styles.langButton}>
+            ES
+          </button>
+        </Link>
         <button className={styles.contactBtn}>
           Contact
         </button>

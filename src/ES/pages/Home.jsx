@@ -2,9 +2,8 @@ import Lenis from '@studio-freight/lenis'
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './Home.module.css';
 import React, { useRef, useState, useEffect } from 'react';
-import RotatingText from '../RotatingText/RotatingText';
-import StarField from '../components/Backgrounds/StarField';
-import Footer from '../components/Footer/Footer';
+import RotatingText from '../../ES/RotatingText/RotatingText';
+import StarField from '../../ES/components/Backgrounds/StarField';
 
 export default function Home() {
 
@@ -68,32 +67,27 @@ export default function Home() {
 
     const projectItems = [
         {
-            title: "EVOLVE",
-            description: "AI-Powered Fitness Platform",
-            image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48",
-            color: "#6d597a",
-            tags: ["React", "Node.js", "AI", "Motion"]
-        },
-        {
-            title: "ETHEREAL",
-            description: "Virtual Reality Experience",
-            image: "https://images.unsplash.com/photo-1617802690992-15d93263d3a9",
+            title: "Play Place",
+            description: "Plataforma SaaS para la reserva de campos deportivos en Perú, funcionando como un intermediario entre jugadores y propietarios de canchas. Utiliza Cloud Firestore como base de datos en la nube para gestionar disponibilidad, tarifas y reservas en tiempo real. Cuenta con autenticación con Google, integración de pagos y un diseño optimizado para accesibilidad y rendimiento. La plataforma permite a los usuarios visualizar un mapa interactivo con la ubicación de las canchas en tiempo real, realizar reservas en línea y gestionar registros de manera eficiente.",
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71", 
             color: "#355070",
-            tags: ["Three.js", "WebGL", "VR", "GSAP"]
+            tags: [
+                "Cloud Firestore", "Firebase Authentication", "React", "JavaScript", 
+                "CSS", "Tailwind CSS", "Stripe API", "Google Maps API", 
+                "Serverless", "Full-Stack Development", "Gamification", 
+                "Python", "Data Analytics", "Real-Time Database"
+            ]
         },
         {
-            title: "QUANTUM",
-            description: "Data Visualization Dashboard",
-            image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0",
-            color: "#b56576",
-            tags: ["D3.js", "React", "AWS", "Redux"]
-        },
-        {
-            title: "NEBULA",
-            description: "Cloud Management System",
-            image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa",
-            color: "#9a8c98",
-            tags: ["Vue", "Python", "Docker", "AWS"]
+            title: "Plataforma para Exalumnos GAEP",
+            description: "Plataforma web SaaS diseñada para fortalecer la comunidad de exalumnos de una escuela nacional peruana, brindando acceso a noticias, eventos y actividades exclusivas. Desarrollada con una arquitectura en la nube, integra Firebase Authentication para una gestión segura de usuarios y un sistema de roles para administradores y miembros.",
+            image: "https://images.unsplash.com/photo-1617802690992-15d93263d3a9",
+            color: "#6d597a",
+            tags: [
+                "Firebase Authentication", "Firestore", "React", "JavaScript", 
+                "SaaS", "Cloud Database", "Role-based Access", 
+                "Serverless", "Hosting", "Figma", "UI/UX", "Full-Stack Development"
+            ]
         },
         {
             title: "PULSE",
@@ -188,57 +182,58 @@ export default function Home() {
 
     const formFields = [
         {
-            label: "Name*",
+            label: "Nombre*",
             type: "text",
-            placeholder: "Please enter your full name.",
+            placeholder: "Por favor, ingresa tu nombre completo.",
             required: true,
             gridColumn: "1 / 2"
         },
         {
-            label: "Email*",
+            label: "Correo electrónico*",
             type: "email",
-            placeholder: "Provide a valid email address.",
+            placeholder: "Proporciona una dirección de correo válida.",
             required: true,
             gridColumn: "2 / 3"
         },
         {
-            label: "Phone number*",
+            label: "Número de teléfono*",
             type: "tel",
-            placeholder: "Enter your phone number including area code.",
+            placeholder: "Ingresa tu número de teléfono con código de área.",
             required: true,
             gridColumn: "1 / 2"
         },
         {
-            label: "Company name*",
+            label: "Nombre de la empresa*",
             type: "text",
-            placeholder: "Enter your company or organization name.",
+            placeholder: "Ingresa el nombre de tu empresa u organización.",
             required: true,
             gridColumn: "2 / 3"
         },
         {
-            label: "Budget*",
+            label: "Presupuesto*",
             type: "select",
             options: ["$10,000 - $25,000", "$25,000 - $50,000", "$50,000+"],
-            placeholder: "Select your budget range",
+            placeholder: "Selecciona tu rango de presupuesto",
             required: true,
             gridColumn: "1 / 2"
         },
         {
-            label: "Services*",
+            label: "Servicios*",
             type: "select",
-            options: ["Web Development", "Mobile App Development", "UI/UX Design", "Digital Marketing"],
-            placeholder: "Select required services",
+            options: ["Desarrollo Web", "Desarrollo de Apps Móviles", "Diseño UI/UX", "Marketing Digital"],
+            placeholder: "Selecciona los servicios requeridos",
             required: true,
             gridColumn: "2 / 3"
         },
         {
-            label: "Message",
+            label: "Mensaje",
             type: "textarea",
-            placeholder: "Provide any additional information or project details here.",
+            placeholder: "Proporciona información adicional o detalles del proyecto aquí.",
             required: false,
             gridColumn: "1 / 3"
         }
     ];
+
 
 
     useEffect(() => {
@@ -300,46 +295,46 @@ export default function Home() {
 
     const serviceCards = [
         {
-            type: "Web Development",
-            subtypes: ["Frontend Dev", "Backend Dev", "Full Stack"],
+            type: "Desarrollo Web",
+            subtypes: ["Desarrollo Frontend", "Desarrollo Backend", "Full Stack"],
         },
         {
-            type: "UI/UX Design",
-            subtypes: ["User Research", "Wireframing", "Prototyping"],
+            type: "Diseño UI/UX",
+            subtypes: ["Investigación de Usuarios", "Wireframing", "Prototipado"],
         },
         {
-            type: "Digital Marketing",
-            subtypes: ["SEO", "Social Media", "Content Strategy"],
+            type: "Marketing Digital",
+            subtypes: ["SEO", "Redes Sociales", "Estrategia de Contenido"],
         },
         {
-            type: "Brand Strategy",
-            subtypes: ["Identity Design", "Brand Voice", "Guidelines"],
+            type: "Estrategia de Marca",
+            subtypes: ["Diseño de Identidad", "Voz de Marca", "Guías de Estilo"],
         },
         {
-            type: "Mobile Development",
-            subtypes: ["iOS Native", "Android Native", "Cross Platform"],
+            type: "Desarrollo Móvil",
+            subtypes: ["iOS Nativo", "Android Nativo", "Multiplataforma"],
         },
         {
-            type: "Cloud Services",
+            type: "Servicios en la Nube",
             subtypes: ["AWS", "Azure", "Google Cloud"],
         },
         {
-            type: "Data Analytics",
-            subtypes: ["Big Data", "Visualization", "Reporting"],
+            type: "Análisis de Datos",
+            subtypes: ["Big Data", "Visualización", "Reportes"],
         },
         {
-            type: "AI Solutions",
-            subtypes: ["Machine Learning", "NLP", "Computer Vision"],
+            type: "Soluciones de IA",
+            subtypes: ["Aprendizaje Automático", "Procesamiento de Lenguaje Natural", "Visión por Computadora"],
         }
     ];
 
     const wordItems = [
-        { text: "FROM", delay: 0, className: styles.wordSmall },
-        { text: "IDEA", delay: 0.1, className: styles.wordLarge },
-        { text: "TO", delay: 0.2, className: styles.wordSmall },
-        { text: "DELIVERY", delay: 0.3, className: styles.wordLarge },
-        { text: "AND", delay: 0.4, className: styles.wordSmall },
-        { text: "BEYOND", delay: 0.5, className: styles.wordLarge }
+        { text: "DESDE", delay: 0, className: styles.wordSmall },
+        { text: "LA IDEA", delay: 0.1, className: styles.wordLarge },
+        { text: "HASTA", delay: 0.2, className: styles.wordSmall },
+        { text: "LA ENTREGA", delay: 0.3, className: styles.wordLarge },
+        { text: "Y", delay: 0.4, className: styles.wordSmall },
+        { text: "MÁS ALLÁ", delay: 0.5, className: styles.wordLarge }
     ];
 
 
@@ -369,13 +364,13 @@ export default function Home() {
                             transformOrigin: "60% 10%"
                         }}
                     >
-                        A <motion.div className={styles.rotatingContainer}>
+                        Una <motion.div className={styles.rotatingContainer}>
                             <RotatingText
-                                texts={['creative', 'innovative', 'powerful', 'dynamic']}
+                                texts={['creativa', 'inteligente', 'poderosa', 'dinámica']}
                                 mainClassName={styles.rotatingText}
                                 rotationInterval={2000}
                             />
-                        </motion.div> consulting
+                        </motion.div> consulta
                     </motion.h1>
                     <motion.p
                         className={styles.description}
@@ -385,8 +380,8 @@ export default function Home() {
                             transformOrigin: "35% 40%"
                         }}
                     >
-                        We create innovative solutions for your digital needs.
-                        Our team of experts is ready to help you transform your ideas into reality.
+                        Creamos soluciones innovadoras para sus necesidades digitales.
+                        Nuestro equipo de expertos está listo para ayudarle a transformar sus ideas en realidad.
                     </motion.p>
                 </div>
             </motion.div>
@@ -418,7 +413,7 @@ export default function Home() {
                         y: cornerTitleY
                     }}
                 >
-                    In this ever-evolving digital landscape, we are…
+                    En este panorama digital en constante evolución, estamos...
                 </motion.h2>
 
                 <motion.div className={styles.rightContent}>
@@ -429,8 +424,9 @@ export default function Home() {
                             y: item1Y
                         }}
                     >
-                        <h3>Blending Creativity with Technology</h3>
-                        <p>We fuse artistic vision with cutting-edge solutions to bring your brand to life.</p>
+                        <h3>
+                            Combinando creatividad con tecnología</h3>
+                        <p>Fusionamos visión artística con soluciones de vanguardia para darle vida a tu marca.</p>
                     </motion.div>
 
                     <motion.div
@@ -440,8 +436,9 @@ export default function Home() {
                             y: item2Y
                         }}
                     >
-                        <h3>Designing Exceptional Experiences</h3>
-                        <p>Passionately crafting digital journeys that captivate, engage, and leave a lasting impact.</p>
+                        <h3>
+                            Diseñando experiencias excepcionales</h3>
+                        <p>Creando con pasión viajes digitales que cautiven, atraigan y dejen un impacto duradero.</p>
                     </motion.div>
 
                     <motion.div
@@ -451,8 +448,9 @@ export default function Home() {
                             y: item3Y
                         }}
                     >
-                        <h3>Challenging Limits</h3>
-                        <p>We don't just follow trends—we redefine them.</p>
+                        <h3>Límites desafiantes
+                        </h3>
+                        <p>No nos limitamos a seguir las tendencias: las redefinimos.</p>
                     </motion.div>
                 </motion.div>
             </motion.div>
@@ -461,7 +459,7 @@ export default function Home() {
                 style={{ y: section3Y }}
             >
                 <div className={styles.serviceGrid}>
-                    {Array(24).fill('SERVICES').map((text, index) => (
+                    {Array(24).fill('SERVICIOS').map((text, index) => (
                         <motion.span
                             key={index}
                             className={styles.serviceText}
@@ -496,7 +494,7 @@ export default function Home() {
                             y: titleY
                         }}
                     >
-                        Our Services
+                        Nuestros Servicios
                     </motion.h2>
                     <div className={styles.servicesWrapper}>
                         <motion.div
@@ -575,9 +573,9 @@ export default function Home() {
                     className={styles.section5Text}
                     style={{ y: section5TextY }}
                 >
-                    In a constantly evolving digital world, we transform ideas into fluid and dynamic experiences.
-                    We fuse innovation and design to create solutions that adapt naturally to each challenge,
-                    driving your business with cutting-edge and frictionless technology.
+                    En un mundo digital en constante evolución, transformamos ideas en experiencias fluidas y dinámicas.
+                    Fusionamos innovación y diseño para crear soluciones que se adaptan de forma natural a cada desafío,
+                    impulsando su negocio con tecnología de vanguardia y sin fricciones.
                 </motion.p>
             </motion.div>
 
@@ -597,26 +595,25 @@ export default function Home() {
                 <div className={styles.projectsContainer}>
                     <div className={styles.rotatingBackground}>
                         <div className={`${styles.scrollingBand} ${styles.top}`}>
-                            PORTFOLIO SHOWCASE PORTFOLIO SHOWCASE PORTFOLIO SHOWCASE&nbsp;
-                            PORTFOLIO SHOWCASE PORTFOLIO SHOWCASE PORTFOLIO SHOWCASE&nbsp;
-                            PORTFOLIO SHOWCASE PORTFOLIO SHOWCASE PORTFOLIO SHOWCASE&nbsp;
-                            PORTFOLIO SHOWCASE PORTFOLIO SHOWCASE PORTFOLIO SHOWCASE&nbsp;
-                            PORTFOLIO SHOWCASE PORTFOLIO SHOWCASE PORTFOLIO SHOWCASE&nbsp;
+                            EXHIBICIÓN DE PORTAFOLIO EXHIBICIÓN DE PORTAFOLIO EXHIBICIÓN DE PORTAFOLIO&nbsp;
+                            EXHIBICIÓN DE PORTAFOLIO EXHIBICIÓN DE PORTAFOLIO EXHIBICIÓN DE PORTAFOLIO&nbsp;
+                            EXHIBICIÓN DE PORTAFOLIO EXHIBICIÓN DE PORTAFOLIO EXHIBICIÓN DE PORTAFOLIO&nbsp;
+                            EXHIBICIÓN DE PORTAFOLIO EXHIBICIÓN DE PORTAFOLIO EXHIBICIÓN DE PORTAFOLIO&nbsp;
+                            EXHIBICIÓN DE PORTAFOLIO EXHIBICIÓN DE PORTAFOLIO EXHIBICIÓN DE PORTAFOLIO&nbsp;
                         </div>
                         <div className={`${styles.scrollingBand} ${styles.bottom}`}>
-                            CREATIVE WORKS CREATIVE WORKS CREATIVE WORKS&nbsp;
-                            CREATIVE WORKS CREATIVE WORKS CREATIVE WORKS&nbsp;
-                            CREATIVE WORKS CREATIVE WORKS CREATIVE WORKS&nbsp;
-                            CREATIVE WORKS CREATIVE WORKS CREATIVE WORKS&nbsp;
-                            CREATIVE WORKS CREATIVE WORKS CREATIVE WORKS&nbsp;
-
-
+                            TRABAJOS CREATIVOS TRABAJOS CREATIVOS TRABAJOS CREATIVOS&nbsp;
+                            TRABAJOS CREATIVOS TRABAJOS CREATIVOS TRABAJOS CREATIVOS&nbsp;
+                            TRABAJOS CREATIVOS TRABAJOS CREATIVOS TRABAJOS CREATIVOS&nbsp;
+                            TRABAJOS CREATIVOS TRABAJOS CREATIVOS TRABAJOS CREATIVOS&nbsp;
+                            TRABAJOS CREATIVOS TRABAJOS CREATIVOS TRABAJOS CREATIVOS&nbsp;
                         </div>
                     </div>
                     <h2 className={styles.projectsHeading}>
-                        Our Featured Projects
+                        Nuestros Proyectos Destacados
                     </h2>
                 </div>
+
             </motion.div>
             <motion.div
                 className={styles.section7}
@@ -680,7 +677,6 @@ export default function Home() {
                                     transition: { delay: 0.4 + index * 0.2 }
                                 }}
                             >
-                                {project.description}
                             </motion.p>
                             <div className={styles.projectTags}>
                                 {project.tags.map((tag, idx) => (
@@ -762,23 +758,23 @@ export default function Home() {
                         <motion.h1
                             style={{ y: leftTitleY, opacity: leftTitleOpacity }}
                         >
-                            Our modes of working
+                            Nuestros modos de trabajo
                         </motion.h1>
                     </motion.div>
 
                     <div className={styles.rightColumn}>
                         {[
                             {
-                                title: "Project Basis",
-                                text: "The best approach for a one-time project, where the scope is well defined and the deliverables are clear. It is a fixed-price model where the project is delivered within a specific timeline and budget."
+                                title: "Por Proyecto",
+                                text: "El mejor enfoque para un proyecto puntual, donde el alcance está bien definido y los entregables son claros. Es un modelo de precio fijo en el que el proyecto se entrega dentro de un tiempo y presupuesto específicos."
                             },
                             {
-                                title: "Monthly Retainer",
-                                text: "Ideal for ongoing projects that require continuous support and maintenance. It is a flexible model where you can hire our team on a monthly basis to work on your project."
+                                title: "Retenedor Mensual",
+                                text: "Ideal para proyectos en curso que requieren soporte y mantenimiento continuo. Es un modelo flexible en el que puedes contratar a nuestro equipo mensualmente para trabajar en tu proyecto."
                             },
                             {
-                                title: "Consultation",
-                                text: "We provide consultation services to help you make informed decisions about your technology stack, architecture, and development process."
+                                title: "Consultoría",
+                                text: "Brindamos servicios de consultoría para ayudarte a tomar decisiones informadas sobre tu stack tecnológico, arquitectura y proceso de desarrollo."
                             }
                         ].map((item, index) => (
                             <motion.div
@@ -883,7 +879,7 @@ export default function Home() {
                             WebkitBackfaceVisibility: 'hidden'
                         }}
                     >
-                        Let's<br />Connect
+                        Pongámonos <br /> en contacto
                     </motion.h1>
 
                     <form className={styles.contactForm}>
@@ -925,7 +921,6 @@ export default function Home() {
                     </form>
                 </motion.div>
             </motion.div>
-            // Update footer section in Home.jsx
             <motion.div className={styles.footerSection}
                 style={{
                     y: footerY,
