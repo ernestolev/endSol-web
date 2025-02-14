@@ -13,6 +13,7 @@
     z-index: 1000;
     box-sizing: border-box;
     font-family: "Montserrat", serif ;
+    color: #000000;
   }
 
   :global(main) {
@@ -29,6 +30,10 @@
   .navLinks {
     display: flex;
     gap: 2rem;
+  }
+  
+  a{
+    color: #000000;
   }
   
   .navLink {
