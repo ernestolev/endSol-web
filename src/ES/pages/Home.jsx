@@ -2,8 +2,8 @@ import Lenis from '@studio-freight/lenis'
 import { motion, useScroll, useTransform } from 'framer-motion';
 import styles from './Home.module.css';
 import React, { useRef, useState, useEffect } from 'react';
-import RotatingText from '../../ES/RotatingText/RotatingText';
-import StarField from '../../ES/components/Backgrounds/StarField';
+import RotatingText from '../RotatingText/RotatingText';
+import StarField from '../components/Backgrounds/StarField';
 
 export default function Home() {
 
@@ -69,12 +69,12 @@ export default function Home() {
         {
             title: "Play Place",
             description: "Plataforma SaaS para la reserva de campos deportivos en Perú, funcionando como un intermediario entre jugadores y propietarios de canchas. Utiliza Cloud Firestore como base de datos en la nube para gestionar disponibilidad, tarifas y reservas en tiempo real. Cuenta con autenticación con Google, integración de pagos y un diseño optimizado para accesibilidad y rendimiento. La plataforma permite a los usuarios visualizar un mapa interactivo con la ubicación de las canchas en tiempo real, realizar reservas en línea y gestionar registros de manera eficiente.",
-            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71", 
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
             color: "#355070",
             tags: [
-                "Cloud Firestore", "Firebase Authentication", "React", "JavaScript", 
-                "CSS", "Tailwind CSS", "Stripe API", "Google Maps API", 
-                "Serverless", "Full-Stack Development", "Gamification", 
+                "Cloud Firestore", "Firebase Authentication", "React", "JavaScript",
+                "CSS", "Tailwind CSS", "Stripe API", "Google Maps API",
+                "Serverless", "Full-Stack Development", "Gamification",
                 "Python", "Data Analytics", "Real-Time Database"
             ]
         },
@@ -84,8 +84,8 @@ export default function Home() {
             image: "https://images.unsplash.com/photo-1617802690992-15d93263d3a9",
             color: "#6d597a",
             tags: [
-                "Firebase Authentication", "Firestore", "React", "JavaScript", 
-                "SaaS", "Cloud Database", "Role-based Access", 
+                "Firebase Authentication", "Firestore", "React", "JavaScript",
+                "SaaS", "Cloud Database", "Role-based Access",
                 "Serverless", "Hosting", "Figma", "UI/UX", "Full-Stack Development"
             ]
         },
@@ -112,8 +112,8 @@ export default function Home() {
 
     const projectIndex = useTransform(
         scrollYProgress,
-        [0.31, 0.33, 0.35, 0.37, 0.39, 0.41], // Increased ranges
-        [0, 1, 2, 3, 4, 4]  // Added final value to hold last project
+        [0.31, 0.34, 0.38], // Increased ranges
+        [0, 1, 2]  // Added final value to hold last project
     );
 
     const section8Y = useTransform(scrollYProgress, [0.42, 0.45], ["100vh", "0vh"]);
@@ -125,6 +125,7 @@ export default function Home() {
 
     const section9Y = useTransform(scrollYProgress, [0.47, 0.5], ["100vh", "0vh"]);
     const section9Opacity = useTransform(scrollYProgress, [0.48, 0.485], [0, 1]);
+    const section9Exit = useTransform(scrollYProgress, [0.56, 0.57], [0, "-100vh"]); // Add exit animation
 
 
     const rightItems = [
@@ -144,26 +145,26 @@ export default function Home() {
 
     const section10TitleScale = useTransform(
         scrollYProgress,
-        [0.57, 0.63],
-        [195, 1]  // Reducido de 40 a 15 para mantenerlo visible
+        [0.58, 0.63],
+        [205, 1]  // Reduced scale for smoother transition
     );
 
     const section10TitleRotate = useTransform(
         scrollYProgress,
         [0.58, 0.63],
-        [-95, 0]  // Rotación más sutil
+        [-80, 0]  // Reduced rotation
     );
 
     const section10TitleX = useTransform(
         scrollYProgress,
         [0.57, 0.63],
-        ['330%', '4rem']  // Usar porcentaje para centrar inicialmente
+        ['1500%', '4rem']  // Usar porcentaje para centrar inicialmente
     );
 
     const section10TitleY = useTransform(
         scrollYProgress,
         [0.57, 0.63],
-        ['90%', '4rem']  // Ajustar posición vertical
+        ['4800%', '4rem']  // Ajustar posición vertical
     );
 
 
@@ -845,24 +846,22 @@ export default function Home() {
             <motion.div
                 className={styles.section10}
                 style={{
+                    y: section10Y,
+                    opacity: section10Opacity,
                     position: 'fixed',
                     top: 0,
                     left: 0,
                     width: '100%',
                     height: '100vh',
-                    zIndex: 12,
+                    zIndex: showContent ? 12 : -1, // Only show when active
                     background: '#fff',
-                    opacity: section10Opacity,
-                    willChange: 'transform, opacity', // Add performance hint
-                    backfaceVisibility: 'hidden', // Reduce flickering
-                    WebkitBackfaceVisibility: 'hidden',
-                    transform: 'translateZ(0)', // Force GPU acceleration
+                    pointerEvents: showContent ? 'auto' : 'none',
                 }}
             >
                 <motion.div
                     className={styles.formContainer}
                     style={{
-                        willChange: 'transform'
+                        opacity: section10Opacity
                     }}
                 >
                     <motion.h1
@@ -872,14 +871,10 @@ export default function Home() {
                             rotate: section10TitleRotate,
                             x: section10TitleX,
                             y: section10TitleY,
-                            transformOrigin: "center center", // Cambiar a center para mejor control
-                            position: 'absolute', // Asegurar posicionamiento absoluto
-                            willChange: 'transform',
-                            backfaceVisibility: 'hidden',
-                            WebkitBackfaceVisibility: 'hidden'
+                            transformOrigin: "left center",
                         }}
                     >
-                        Pongámonos <br /> en contacto
+                        Ahora<br />Contactanos
                     </motion.h1>
 
                     <form className={styles.contactForm}>

@@ -1,0 +1,292 @@
+
+.workContainer {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.hero {
+    padding: 8rem 4rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-family: "Space Grotesk", sans-serif;
+    line-height: 1.1;
+    margin-bottom: 4rem;
+    max-width: 1000px;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.statBox {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.statBox span {
+    font-size: 3rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.showcase {
+    padding: 8rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.showcase h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 1rem;
+}
+
+.showcase p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    margin-bottom: 4rem;
+    font-family: "DM Sans", sans-serif;
+}
+
+.projectsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+}
+
+.projectCard {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.projectCard:hover {
+    transform: translateY(-10px);
+}
+
+.projectImage {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.projectImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.projectCard:hover .projectImage img {
+    transform: scale(1.05);
+}
+
+.projectContent {
+    padding: 2rem;
+}
+
+.projectType {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.6;
+    font-family: "DM Sans", sans-serif;
+}
+
+.projectContent h3 {
+    font-size: 1.5rem;
+    font-family: "Space Grotesk", sans-serif;
+    margin: 1rem 0;
+}
+
+.techTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.tag {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-family: "DM Sans", sans-serif;
+}
+
+.readMore {
+    color: #fff;
+    text-decoration: none;
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.readMore:hover {
+    opacity: 1;
+}
+
+.industries {
+    padding: 8rem 4rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.industriesGrid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+.industryCard {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    text-align: center;
+    font-family: "DM Sans", sans-serif;
+    transition: transform 0.3s ease;
+}
+
+.industryCard:hover {
+    transform: translateY(-5px);
+}
+
+.approach {
+    padding: 8rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.approachSteps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.stepCard {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+}
+
+.stepCard h3 {
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.techStack {
+    padding: 8rem 4rem;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.stackCategories {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+}
+
+.stackCategory {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+}
+
+.technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.techItem {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    font-family: "DM Sans", sans-serif;
+}
+
+.faq {
+    padding: 8rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.faqItem {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+}
+
+.faqItem summary {
+    font-family: "Space Grotesk", sans-serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 1rem;
+}
+
+.faqItem p {
+    padding: 1rem;
+    opacity: 0.8;
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.6;
+}
+
+.cta {
+    padding: 8rem 4rem;
+    text-align: center;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.05));
+}
+
+.ctaButton {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 2rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    margin-top: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .hero, .showcase, .industries, .approach, .techStack, .faq, .cta {
+        padding: 4rem 2rem;
+    }
+
+    .statsGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .projectsGrid {
+        grid-template-columns: 1fr;
+    }
+}

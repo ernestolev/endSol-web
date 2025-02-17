@@ -1,0 +1,183 @@
+.aboutContainer {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+  }
+  
+  .hero {
+    padding: 8rem 4rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .hero h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-family: "Space Grotesk", sans-serif;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+  }
+  
+  .heroText {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    opacity: 0.8;
+    font-family: "DM Sans", sans-serif;
+    margin-bottom: 2rem;
+  }
+  
+  .subHeading {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-family: "Space Grotesk", sans-serif;
+    margin-top: 4rem;
+  }
+  
+  .visionMission {
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .visionBox, .missionBox {
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+  }
+  
+  .values {
+    padding: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .valuesGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  
+  .valueCard {
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .valueCard:hover {
+    transform: translateY(-5px);
+  }
+  
+  .valueCard h3 {
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+  
+  .valueCard p {
+    font-family: "DM Sans", sans-serif;
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+  
+  .cta {
+    padding: 8rem 4rem;
+    text-align: center;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.05));
+  }
+  
+  .ctaButton {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 2rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    margin-top: 2rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .ctaButton:hover {
+    transform: translateY(-2px);
+  }
+
+  .team {
+    padding: 8rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.team h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 2rem;
+}
+
+.teamIntro {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    max-width: 800px;
+    opacity: 0.8;
+    font-family: "DM Sans", sans-serif;
+    margin-bottom: 4rem;
+}
+
+.teamMembers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.teamCard {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.teamCard:hover {
+    transform: translateY(-10px);
+}
+
+.teamImage {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.teamInfo {
+    padding: 2rem;
+}
+
+.teamInfo h3 {
+    font-size: 1.5rem;
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 0.5rem;
+}
+
+.teamPosition {
+    font-family: "DM Sans", sans-serif;
+    opacity: 0.7;
+    margin-bottom: 1rem;
+}
+
+.teamBio {
+    font-family: "DM Sans", sans-serif;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+  
+  @media (max-width: 768px) {
+    .visionMission {
+      grid-template-columns: 1fr;
+    }
+  
+    .valuesGrid {
+      grid-template-columns: 1fr;
+    }
+  }

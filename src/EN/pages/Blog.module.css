@@ -1,0 +1,191 @@
+.blogContainer {
+    background: #000;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.hero {
+    padding: 8rem 4rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-family: "Space Grotesk", sans-serif;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    font-family: "DM Sans", sans-serif;
+}
+
+.blogContent {
+    padding: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.categories {
+    display: flex;
+    gap: 1rem;
+}
+
+.categoryBtn {
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 2rem;
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.categoryBtn.active {
+    background: #fff;
+    color: #000;
+}
+
+.search input {
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-radius: 2rem;
+    color: #fff;
+    font-family: "DM Sans", sans-serif;
+    width: 300px;
+}
+
+.search input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.postsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 3rem;
+}
+
+.blogCard {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.blogCard:hover {
+    transform: translateY(-5px);
+}
+
+.blogImage {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.blogImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.blogCard:hover .blogImage img {
+    transform: scale(1.05);
+}
+
+.blogInfo {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category, .date {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    font-family: "DM Sans", sans-serif;
+}
+
+.blogCard h2 {
+    padding: 0 1.5rem;
+    font-size: 1.5rem;
+    font-family: "Space Grotesk", sans-serif;
+    margin-bottom: 1rem;
+}
+
+.blogCard p {
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    font-family: "DM Sans", sans-serif;
+}
+
+.readMore {
+    display: inline-block;
+    padding: 0 1.5rem 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    font-family: "Space Grotesk", sans-serif;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.readMore:hover {
+    opacity: 1;
+}
+
+.cta {
+    padding: 8rem 4rem;
+    text-align: center;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.05));
+}
+
+.ctaButton {
+    display: inline-block;
+    padding: 1rem 3rem;
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    border-radius: 2rem;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+    margin-top: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .hero, .blogContent, .cta {
+        padding: 4rem 2rem;
+    }
+
+    .filters {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .categories {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .search input {
+        width: 100%;
+    }
+}
