@@ -11,10 +11,13 @@
 
 .container {
     position: relative;
-    height: 2000vh;
+    height: 5000vh;
     /* Aumentar para dar espacio al footer */
     overflow-x: hidden;
+
 }
+
+
 
 .overlay {
     position: fixed;
@@ -1342,6 +1345,64 @@
 
 
 @media (max-width: 468px) {
+
+    .container {
+        transform: none !important;
+        will-change: scroll-position;
+    }
+
+    .section {
+        will-change: transform;
+        transform: translateZ(0);
+    }
+
+    /* Optimizar scroll táctil */
+    * {
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .lavaLamp,
+    .gridOverlay,
+    .starFieldContainer {
+        display: none;
+    }
+
+    .projectCard,
+    .serviceCard,
+    .contentItem {
+        transform: none !important;
+        transition: opacity 0.2s ease;
+    }
+
+    
+
+    .motion-div {
+        transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    }
+
+    /* Reducir animaciones en móvil */
+    .lavaBlob1,
+    .lavaBlob2,
+    .lavaBlob3,
+    .lavaBlob4,
+    .lavaBlob5,
+    .lavaBlob6 {
+        animation: none;
+    }
+
+    /* Simplificar transformaciones */
+    .projectCard,
+    .serviceCard {
+        transform: none !important;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Deshabilitar efectos hover en móvil */
+    .projectCard:hover,
+    .serviceCard:hover {
+        transform: none !important;
+    }
+
     .title {
         margin-left: 30px;
         font-size: 3rem;
@@ -1635,7 +1696,8 @@
     .legalLinks span {
         display: none;
     }
-    .footerLegal{
+
+    .footerLegal {
         padding-top: 1rem;
     }
 

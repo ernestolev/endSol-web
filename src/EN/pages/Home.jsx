@@ -8,6 +8,12 @@ import StarField from '../../EN/components/Backgrounds/StarField';
 export default function Home() {
 
 
+    const motionConfig = {
+        transform: true,
+        opacity: true,
+        layoutDependency: false,
+        reducedMotion: "user"
+    };
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -348,13 +354,19 @@ export default function Home() {
 
     return (
         <div ref={containerRef} className={styles.container}>
+            {/* Optimizar secciones con animaciones */}
             <motion.div
                 className={styles.hero}
                 style={{
                     x: xPosition,
                     y: yPosition,
-                    scale
+                    scale,
+                    translateZ: 0 // Forzar aceleración por hardware
                 }}
+                transformTemplate={({ scale, x, y }) =>
+                    `translateZ(0) translate(${x}, ${y}) scale(${scale})`
+                }
+                {...motionConfig}
             >
                 <div className={styles.content}>
                     <motion.h1
@@ -397,6 +409,10 @@ export default function Home() {
                     width: '100%',
                     height: '100vh'
                 }}
+                transformTemplate={({ y }) =>
+                    `translateZ(0) translate3d(0, ${y}, 0)`
+                }
+                {...motionConfig}
             >
                 <div className={styles.lavaLamp}>
                     <div className={styles.lavaBlob1}></div>

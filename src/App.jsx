@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Outlet, useLocation } from 'react-router-dom';
 import { useState } from 'react'
 import { useEffect, useRef } from 'react';
 import Lenis from '@studio-freight/lenis';
@@ -25,48 +25,57 @@ import BlogES from './ES/pages/Blog';
 import Contactanos from './ES/pages/Contactanos';
 import TC from './ES/pages/TC';
 
+const PageWrapper = ({ isSpanish }) => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/' || location.pathname === '/en';
+  const Footer = isSpanish ? FooterES : FooterEN;
+
+  return (
+    <>
+      <Outlet />
+      {!isHomePage && <Footer />}
+    </>
+  );
+};
 
 function App() {
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      smoothTouch: false,
-      touchMultiplier: 2
+      duration: window.innerWidth <= 768 ? 0.5 : 1.2,
+      smooth: window.innerWidth > 768,
+      mouseMultiplier: window.innerWidth <= 768 ? 0.5 : 1,
+      touchMultiplier: 1,
+      infinite: false
     });
 
-    function raf(time) {
+    const raf = (time) => {
       lenis.raf(time);
       requestAnimationFrame(raf);
-    }
-
+    };
     requestAnimationFrame(raf);
 
-    return () => {
-      lenis.destroy();
-    };
+    return () => lenis.destroy();
   }, []);
+
 
   return (
     <BrowserRouter>
       <Routes>
         {/* Spanish Routes */}
-        <Route element={
-          <>
-            <NavbarES />
-            <FooterES />
-          </>
-        }>
-          <Route path="/" element={<HomeES />} />
-          <Route path="/nosotros" element={<AboutES />} />
-          <Route path="/trabajo" element={<Trabajo />} />
-          <Route path="/metodologia" element={<Metodologia />} />
-          <Route path="/blog" element={<BlogES />} />
-          <Route path="/contactanos" element={<Contactanos />} />
-          <Route path="/terminos-y-condiciones" element={<TC />} />
+        <Route element={<PageWrapper isSpanish={true} />}>
+          <Route element={
+            <>
+              <NavbarES />
+            </>
+          }>
+            <Route path="/" element={<HomeES />} />
+            <Route path="/nosotros" element={<AboutES />} />
+            <Route path="/trabajo" element={<Trabajo />} />
+            <Route path="/metodologia" element={<Metodologia />} />
+            <Route path="/blog" element={<BlogES />} />
+            <Route path="/contactanos" element={<Contactanos />} />
+            <Route path="/terminos-y-condiciones" element={<TC />} />
+          </Route>
         </Route>
 
         {/* English Routes */}

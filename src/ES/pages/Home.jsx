@@ -6,7 +6,9 @@ import RotatingText from '../RotatingText/RotatingText';
 import StarField from '../components/Backgrounds/StarField';
 import { Link } from 'react-router-dom';
 
+
 export default function Home() {
+
 
 
     const containerRef = useRef(null);
@@ -15,54 +17,54 @@ export default function Home() {
         offset: ["start start", "end start"]
     });
 
-    const rotation = useTransform(scrollYProgress, [0, 0.06], [0, -45]);
-    const scale = useTransform(scrollYProgress, [0, 0.06], [1, 50]);
-    const textOpacity = useTransform(scrollYProgress, [0.2, 0.3], [1, 1]);
-    const backgroundDarken = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+    const rotation = useTransform(scrollYProgress, [0, 0.1], [0, -45]);
+    const scale = useTransform(scrollYProgress, [0, 0.1], [1, 50]);
+    const textOpacity = useTransform(scrollYProgress, [0, 0.07], [1, 1]);
+    const backgroundDarken = useTransform(scrollYProgress, [0, 0.01], [0, 1]);
     const xPosition = useTransform(scrollYProgress, [0, 0.1], [0, -50]);
     const yPosition = useTransform(scrollYProgress, [0, 0.1], [0, 0]);
 
     // Section 2 scroll phases
     // Update scroll transforms
-    const nextSectionY = useTransform(scrollYProgress, [0.02, 0.04], ["100vh", "0vh"]);
-    const cornerTitleOpacity = useTransform(scrollYProgress, [0.03, 0.06], [0, 1]);
-    const cornerTitleY = useTransform(scrollYProgress, [0.03, 0.06], [50, 0]);
+    const nextSectionY = useTransform(scrollYProgress, [0.04, 0.06], ["100vh", "0vh"]);
+    const cornerTitleOpacity = useTransform(scrollYProgress, [0.06, 0.09], [0, 1]);
+    const cornerTitleY = useTransform(scrollYProgress, [0.06, 0.08], [50, 0]);
 
-    const item1Opacity = useTransform(scrollYProgress, [0.06, 0.07], [0, 1]);
-    const item1Y = useTransform(scrollYProgress, [0.05, 0.07], [50, 0]);
+    const item1Opacity = useTransform(scrollYProgress, [0.09, 0.12], [0, 1]);
+    const item1Y = useTransform(scrollYProgress, [0.09, 0.12], [50, 0]);
 
-    const item2Opacity = useTransform(scrollYProgress, [0.08, 0.09], [0, 1]);
-    const item2Y = useTransform(scrollYProgress, [0.07, 0.09], [50, 0]);
+    const item2Opacity = useTransform(scrollYProgress, [0.12, 0.15], [0, 1]);
+    const item2Y = useTransform(scrollYProgress, [0.12, 0.15], [50, 0]);
 
-    const item3Opacity = useTransform(scrollYProgress, [0.10, 0.11], [0, 1]);
-    const item3Y = useTransform(scrollYProgress, [0.09, 0.11], [50, 0]);
+    const item3Opacity = useTransform(scrollYProgress, [0.15, 0.18], [0, 1]);
+    const item3Y = useTransform(scrollYProgress, [0.15, 0.18], [50, 0]);
 
     // Section 3 entrance
-    const section3Y = useTransform(scrollYProgress, [0.12, 0.13], ["100vh", "0vh"]);
+    const section3Y = useTransform(scrollYProgress, [0.20, 0.23], ["100vh", "0vh"]);
 
 
-    const section4Y = useTransform(scrollYProgress, [0.14, 0.16], ["100vh", "0vh"]);
-    const section4Opacity = useTransform(scrollYProgress, [0.15, 0.16], [0, 1]);
+    const section4Y = useTransform(scrollYProgress, [0.23, 0.25], ["100vh", "0vh"]);
+    const section4Opacity = useTransform(scrollYProgress, [0.23, 0.25], [0, 1]);
 
-    const titleOpacity = useTransform(scrollYProgress, [0.15, 0.16], [0, 1]);
+    const titleOpacity = useTransform(scrollYProgress, [0.25, 0.27], [0, 1]);
 
-    const titleY = useTransform(scrollYProgress, [0.15, 0.16], [20, 0]);
+    const titleY = useTransform(scrollYProgress, [0.25, 0.27], [20, 0]);
 
     const carouselX = useTransform(
         scrollYProgress,
-        [0.17, 0.185], // Increased range
+        [0.30, 0.38], // Increased range
         ["0%", "-50%"]
     );
 
     const carouselSkew = useTransform(
         scrollYProgress,
-        [0.17, 0.175, 0.185],
-        [0, 15, 0]  // Changed from -15 to 15 for opposite direction
+        [0.30, 0.34, 0.38],
+        [0, 10, 0]  // Changed from -15 to 15 for opposite direction
     );
 
     const cardRotation = useTransform(
         scrollYProgress,
-        [0.17, 0.175, 0.185],
+        [0.30, 0.34, 0.38],
         [0, -25, 0]  // Changed from 15 to -15 for opposite rotation
     );
 
@@ -100,77 +102,77 @@ export default function Home() {
     ];
 
     // Add new scroll transforms after section 4
-    const section5Y = useTransform(scrollYProgress, [0.185, 0.20], ["100vh", "0vh"]);
-    const section5Opacity = useTransform(scrollYProgress, [0.19, 0.20], [0, 1]);
-    const section5TextY = useTransform(scrollYProgress, [0.20, 0.21], [50, 0]);
+    const section5Y = useTransform(scrollYProgress, [0.40, 0.43], ["100vh", "0vh"]);
+    const section5Opacity = useTransform(scrollYProgress, [0.40, 0.43], [0, 1]);
+    const section5TextY = useTransform(scrollYProgress, [0.40, 0.43], [50, 0]);
 
-    const section6Y = useTransform(scrollYProgress, [0.22, 0.24], ["100vh", "0vh"]);
-    const section6Opacity = useTransform(scrollYProgress, [0.22, 0.24], [0, 1]);
+    const section6Y = useTransform(scrollYProgress, [0.44, 0.48], ["100vh", "0vh"]);
+    const section6Opacity = useTransform(scrollYProgress, [0.44, 0.45], [0, 1]);
 
-    const section7Y = useTransform(scrollYProgress, [0.25, 0.27], ["100vh", "0vh"]);
-    const section7Opacity = useTransform(scrollYProgress, [0.25, 0.26], [0, 1]);
-    const section7FullScreen = useTransform(scrollYProgress, [0.29, 0.30], [0, 1]);
+    const section7Y = useTransform(scrollYProgress, [0.49, 0.51], ["100vh", "0vh"]);
+    const section7Opacity = useTransform(scrollYProgress, [0.49, 0.51], [0, 1]);
+    const section7FullScreen = useTransform(scrollYProgress, [0.55, 0.56], [0, 1]);
 
     const projectIndex = useTransform(
         scrollYProgress,
-        [0.31, 0.34, 0.38], // Increased ranges
-        [0, 1, 2]  // Added final value to hold last project
+        [0.56, 0.59, 0.60, 0.63, 0.64, 0.67], // Increased ranges
+        [0, 0, 1, 1, 2, 2]  // Added final value to hold last project
     );
 
-    const section8Y = useTransform(scrollYProgress, [0.42, 0.45], ["100vh", "0vh"]);
-    const section8Opacity = useTransform(scrollYProgress, [0.42, 0.45], [0, 1]);
-    const section8Exit = useTransform(scrollYProgress, [0.48, 0.5], [0, -100]);
+    const section8Y = useTransform(scrollYProgress, [0.68, 0.70], ["100vh", "0vh"]);
+    const section8Opacity = useTransform(scrollYProgress, [0.68, 0.70], [0, 1]);
+    const section8Exit = useTransform(scrollYProgress, [0.74, 0.75], [0, 0]);
 
-    const leftTitleY = useTransform(scrollYProgress, [0.45, 0.46], [50, 0]);
-    const leftTitleOpacity = useTransform(scrollYProgress, [0.45, 0.46], [0, 1]);
+    const leftTitleY = useTransform(scrollYProgress, [0.68, 0.70], [50, 1]);
+    const leftTitleOpacity = useTransform(scrollYProgress, [0.70, 0.71], [0, 1]);
 
-    const section9Y = useTransform(scrollYProgress, [0.47, 0.5], ["100vh", "0vh"]);
-    const section9Opacity = useTransform(scrollYProgress, [0.48, 0.485], [0, 1]);
-    const section9Exit = useTransform(scrollYProgress, [0.56, 0.57], [0, "-100vh"]); // Add exit animation
+    const section9Y = useTransform(scrollYProgress, [0.80, 0.83], ["100vh", "0vh"]);
+    const section9Opacity = useTransform(scrollYProgress, [0.82, 0.83], [0, 1]);
+    const section9Exit = useTransform(scrollYProgress, [0.84, 0.84], [0, "-100vh"]); // Add exit animation
 
 
     const rightItems = [
-        useTransform(scrollYProgress, [0.46, 0.47], [50, 0]),
-        useTransform(scrollYProgress, [0.465, 0.475], [50, 0]),
-        useTransform(scrollYProgress, [0.47, 0.48], [50, 0])
+        useTransform(scrollYProgress, [0.72, 0.74], [50, 0]),
+        useTransform(scrollYProgress, [0.74, 0.76], [50, 0]),
+        useTransform(scrollYProgress,[0.76, 0.78], [50, 0])
     ];
 
     const rightItemsOpacity = [
-        useTransform(scrollYProgress, [0.46, 0.47], [0, 1]),
-        useTransform(scrollYProgress, [0.465, 0.475], [0, 1]),
-        useTransform(scrollYProgress, [0.47, 0.48], [0, 1])
+        useTransform(scrollYProgress, [0.72, 0.74], [0, 1]),
+        useTransform(scrollYProgress, [0.74, 0.76], [0, 1]),
+        useTransform(scrollYProgress, [0.76, 0.78], [0, 1])
     ];
 
-    const section10Y = useTransform(scrollYProgress, [0.57, 0.58], ["100vh", "0vh"]);
-    const section10Opacity = useTransform(scrollYProgress, [0.57, 0.58], [0, 1]);
+    const section10Y = useTransform(scrollYProgress, [0.89, 0.89], ["100vh", "0vh"]);
+    const section10Opacity = useTransform(scrollYProgress, [0.89, 0.90], [0, 1]);
 
     const section10TitleScale = useTransform(
         scrollYProgress,
-        [0.58, 0.63],
+        [0.89, 0.94],
         [205, 1]  // Reduced scale for smoother transition
     );
 
     const section10TitleRotate = useTransform(
         scrollYProgress,
-        [0.58, 0.63],
+        [0.89, 0.94],
         [-80, 0]  // Reduced rotation
     );
 
     const section10TitleX = useTransform(
         scrollYProgress,
-        [0.57, 0.63],
-        ['400%', '0rem']  // Usar porcentaje para centrar inicialmente
+        [0.89, 0.94],
+        ['600%', '0rem']  // Usar porcentaje para centrar inicialmente
     );
 
     const section10TitleY = useTransform(
         scrollYProgress,
-        [0.57, 0.63],
-        ['850%', '6rem']  // Ajustar posición vertical
+        [0.89, 0.94],
+        ['400%', '6rem']  // Ajustar posición vertical
     );
 
 
-    const footerY = useTransform(scrollYProgress, [0.68, 0.75], ["100vh", "0vh"]);
-    const footerOpacity = useTransform(scrollYProgress, [0.68, 0.75], [0, 1]);
+    const footerY = useTransform(scrollYProgress, [0.96, 0.98], ["100vh", "0vh"]);
+    const footerOpacity = useTransform(scrollYProgress, [0.98, 0.98], [0, 1]);
 
 
 
@@ -331,12 +333,12 @@ export default function Home() {
     ];
 
     const wordItems = [
-        { text: "DESDE", delay: 0, className: styles.wordSmall },
-        { text: "LA IDEA", delay: 0.1, className: styles.wordLarge },
-        { text: "HASTA", delay: 0.2, className: styles.wordSmall },
-        { text: "LA ENTREGA", delay: 0.3, className: styles.wordLarge },
-        { text: "Y", delay: 0.4, className: styles.wordSmall },
-        { text: "MÁS ALLÁ", delay: 0.5, className: styles.wordLarge }
+        { text: "DESDE", delay: 0.5, className: styles.wordSmall },
+        { text: "LA IDEA", delay: 1, className: styles.wordLarge },
+        { text: "HASTA", delay: 1.5, className: styles.wordSmall },
+        { text: "LA ENTREGA", delay: 2, className: styles.wordLarge },
+        { text: "Y", delay: 3, className: styles.wordSmall },
+        { text: "MÁS ALLÁ", delay: 3.5, className: styles.wordLarge }
     ];
 
 
@@ -823,10 +825,10 @@ export default function Home() {
                             key={index}
                             className={`${styles.word} ${item.className}`}
                             initial={{
-                                rotateX: 90,
+                                rotateX: 0,
                                 y: 100,
                                 opacity: 0,
-                                z: -100
+                                z: 0
                             }}
                             whileInView={{
                                 rotateX: 0,
@@ -835,9 +837,9 @@ export default function Home() {
                                 z: 0,
                                 transition: {
                                     duration: 1.2,
-                                    delay: index * 0.15,
-                                    ease: [0.25, 0.1, 0.25, 1],
-                                    opacity: { duration: 0.8 }
+                                    delay: index * 0.2,
+                                    ease: [0.1, 0.1, 0.25, 1],
+                                    opacity: { duration: 2 }
                                 }
                             }}
                         >

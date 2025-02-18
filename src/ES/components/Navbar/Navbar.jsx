@@ -47,7 +47,7 @@ export default function Navbar() {
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", latest => {
       // Show navbar in section 1 and 10
-      if (latest <= 0.005 || (latest >= 0.61 && latest <= 0.70)) {
+      if (latest <= 0.005 || (latest >= 0.95 && latest <= 0.99)) {
         setShowNavbar(true);
       } else {
         setShowNavbar(false);
@@ -99,13 +99,6 @@ export default function Navbar() {
           </div>
 
           <div className={styles.rightSection}>
-            <Link 
-              to={handleLanguageSwitch()} 
-              className={styles.langButton}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              EN
-            </Link>
             <Link 
               to="/contactanos" 
               className={styles.contactBtn}
