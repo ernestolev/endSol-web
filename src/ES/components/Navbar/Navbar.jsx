@@ -11,6 +11,18 @@ export default function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
   const location = useLocation();
 
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const navigationLinks = [
+    { path: "/nosotros", label: "Nosotros" },
+    { path: "/trabajo", label: "Proyectos" },
+    { path: "/metodologia", label: "Metodología" },
+    { path: "/blog", label: "Blog" }
+  ];
+
   const isDarkPage = location.pathname.includes('/nosotros') ||
     location.pathname.includes('/trabajo') ||
     location.pathname.includes('/metodologia') ||
@@ -34,16 +46,20 @@ export default function Navbar() {
 
   useEffect(() => {
     const unsubscribe = scrollYProgress.on("change", latest => {
-      // Show navbar when at top (0) or when scrolling up
-      if (latest <= 0.005) {
+      // Show navbar in section 1 and 10
+      if (latest <= 0.005 || (latest >= 0.61 && latest <= 0.70)) {
         setShowNavbar(true);
       } else {
         setShowNavbar(false);
+        // Close mobile menu when navbar hides
+        if (isMenuOpen) {
+          setIsMenuOpen(false);
+        }
       }
     });
 
     return () => unsubscribe();
-  }, [scrollYProgress]);
+  }, [scrollYProgress, isMenuOpen]);
 
   // Reset navbar visibility when route changes
   useEffect(() => {
@@ -59,22 +75,45 @@ export default function Navbar() {
         transition={{ duration: 0.5 }}
       >
         <Link to="/" className={styles.logo}>END</Link>
-        <div className={styles.navLinks}>
-          <Link to="/nosotros">Nosotros</Link>
-          <Link to="/trabajo">Proyectos</Link>
-          <Link to="/metodologia">Metodología</Link>
-          <Link to="/blog">Blog</Link>
-        </div>
-        <div className={styles.rightSection}>
-          <Link to={handleLanguageSwitch()} className={styles.langButton}>
-            <FaGlobe /> EN
-          </Link>
-          <Link to="/contactanos">
-            <button className={styles.contactBtn}>
-              Contáctanos
-            </button>
-          </Link>
 
+        <button
+          className={`${styles.hamburger} ${isMenuOpen ? styles.active : ''}`}
+          onClick={toggleMenu}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div className={`${styles.navContent} ${isMenuOpen ? styles.active : ''}`}>
+          <div className={styles.navLinks}>
+            {navigationLinks.map((link) => (
+              <Link 
+                key={link.path} 
+                to={link.path}
+                onClick={() => setIsMenuOpen(false)} // Close menu on click
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className={styles.rightSection}>
+            <Link 
+              to={handleLanguageSwitch()} 
+              className={styles.langButton}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              EN
+            </Link>
+            <Link 
+              to="/contactanos" 
+              className={styles.contactBtn}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contacto
+            </Link>
+          </div>
         </div>
       </motion.nav>
       <Outlet />

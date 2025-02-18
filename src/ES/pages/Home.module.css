@@ -1009,6 +1009,7 @@
 }
 
 .section10 {
+    background-color: #fff !important;
     transform: translateZ(0);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -1038,6 +1039,7 @@
     transform-origin: left center;
     will-change: transform;
 }
+
 .contactForm {
     grid-column: 2 / 3;
     /* Asegura que está en la columna derecha */
@@ -1283,4 +1285,359 @@
 
 .socialLinks a:hover i {
     transform: scale(1.1);
+}
+
+
+.ctaContainer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+    height: 100vh;
+}
+
+
+.ctaTitle {
+    font-size: clamp(9rem, 8vw, 6rem);
+    font-family: "Montserrat", sans-serif;
+    line-height: 1;
+    color: #000;
+    margin-bottom: 2rem;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 3rem;
+    background: #000;
+    color: #fff;
+    border-radius: 3rem;
+    font-size: 1.2rem;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid #000;
+    margin-top: 35px;
+}
+
+.ctaButton:hover {
+    transform: translateY(-5px);
+    background: #fff;
+    color: #000;
+}
+
+.arrow {
+    display: inline-block;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .arrow {
+    transform: translateX(5px);
+}
+
+
+@media (max-width: 468px) {
+    .title {
+        margin-left: 30px;
+        font-size: 3rem;
+        color: #000;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        flex-direction: column;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .rotatingContainer {
+        width: auto;
+    }
+
+    .rotatingText {
+        font-size: 3rem;
+    }
+
+    .description {
+        font-size: 0.8rem;
+        margin-left: 30px;
+    }
+
+    .cornerTitle {
+        position: sticky;
+        z-index: 3;
+        font-size: 2rem;
+        font-weight: 800;
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.2;
+        text-align: center;
+        width: 100%;
+        margin-top: 60px;
+    }
+
+    .rightContent {
+        margin-top: 40px;
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0 20px;
+        gap: 2rem;
+
+    }
+
+    .contentItem {
+        text-align: center;
+    }
+
+    .rightContent h3 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+        line-height: 1.5rem;
+    }
+
+    .rightContent p {
+        font-size: 0.8rem;
+    }
+
+    .serviceGrid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1rem;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        justify-content: space-between;
+    }
+
+    .servicesContainer {
+        padding: 0rem;
+    }
+
+    .servicesContainer h2 {
+        font-size: 3rem;
+        text-align: center;
+        margin-top: 2rem;
+        margin-bottom: 0rem;
+    }
+
+    .servicesGrids {
+        padding: 1rem;
+    }
+
+    .servicesWrapper {
+        margin-top: 0px;
+    }
+
+    .section5 {
+        padding: 2rem 1rem;
+    }
+
+    .section5Text {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .projectsHeading {
+        font-size: 2rem;
+    }
+
+    .projectsShowcase {
+        padding: 1rem;
+    }
+
+    .projectCard {
+        grid-template-columns: 1fr;
+        padding: 0rem;
+        gap: 1rem;
+    }
+
+    .projectImage {
+        height: auto;
+        width: 100%;
+        order: -1;
+        grid-column: 1 / 3 !important;
+        grid-row: 1 / 8 !important;
+    }
+
+    .projectTitle {
+        font-size: 1.8rem;
+        margin-left: 12px;
+        margin-bottom: 0.8rem;
+    }
+
+    .projectDescription {
+        display: none;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+
+    .projectTags {
+        display: none;
+        gap: 0.3rem;
+    }
+
+    .tag {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.65rem;
+    }
+
+    .projectsShowcase {
+        padding: 2rem 1rem;
+    }
+
+    .projectFullView {
+        padding: 2rem 1rem;
+        height: auto;
+        min-height: 100%;
+    }
+
+    .projectContent p {
+        font-size: 0.8rem !important;
+
+    }
+
+    .projectContent {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .projectContent h2 {
+        font-size: 2rem;
+        grid-column: 1 / -1;
+        margin-bottom: 0.5rem;
+    }
+
+    .projectContent p {
+        font-size: 1rem;
+        grid-column: 1 / -1;
+        margin-bottom: 1rem;
+        max-width: 100%;
+    }
+
+    .projectContent .projectImage {
+        grid-column: 1 / -1;
+        grid-row: 2 / 3;
+        height: auto;
+        width: 100%;
+    }
+
+    .projover {
+        width: 100%;
+    }
+
+    .projectContent .projectTags {
+        display: none;
+    }
+
+    .section8Inner {
+        display: flex;
+        gap: 2rem;
+        padding: 1rem;
+        flex-direction: column;
+    }
+
+    .leftColumn h1 {
+        font-size: 2rem;
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    .leftColumn {
+        padding-left: 0rem;
+    }
+
+    .rightColumn {
+        gap: 1rem;
+    }
+
+    .rightItem h3 {
+        font-size: 1.5rem;
+    }
+
+    .rightItem p {
+        font-size: 0.8rem;
+    }
+
+    .wordLarge {
+        text-align: center;
+        font-size: 3rem;
+    }
+
+    .formContainer {
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .formTitle {
+        font-size: 2rem;
+    }
+
+    .ctaContainer {
+        padding: 1rem;
+    }
+
+    .ctaTitle {
+        font-size: 3.5rem;
+    }
+
+    .ctaButton {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.5rem 1rem;
+        background: #000;
+        color: #fff;
+        border-radius: 3rem;
+        font-size: 1rem;
+        font-family: "Montserrat", sans-serif;
+        text-decoration: none;
+        transition: all 0.3sease;
+        border: 2px solid #000;
+        margin-top: 40px;
+    }
+
+    .footerMainContent {
+        display: flex;
+        grid-template-columns: 1.5fr 2fr 1.5fr;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        flex-direction: column;
+    }
+
+    .footerInner {
+        padding: 2rem 1rem;
+    }
+
+    .footerNavigation {
+        display: none;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .newsletterForm {
+        flex-direction: column;
+    }
+
+    .newsletterForm button {
+        width: 100%;
+    }
+
+    .legalLinks {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .legalLinks span {
+        display: none;
+    }
+    .footerLegal{
+        padding-top: 1rem;
+    }
+
+
 }

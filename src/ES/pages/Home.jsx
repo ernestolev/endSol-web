@@ -4,6 +4,7 @@ import styles from './Home.module.css';
 import React, { useRef, useState, useEffect } from 'react';
 import RotatingText from '../RotatingText/RotatingText';
 import StarField from '../components/Backgrounds/StarField';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 
@@ -158,18 +159,18 @@ export default function Home() {
     const section10TitleX = useTransform(
         scrollYProgress,
         [0.57, 0.63],
-        ['1500%', '4rem']  // Usar porcentaje para centrar inicialmente
+        ['400%', '0rem']  // Usar porcentaje para centrar inicialmente
     );
 
     const section10TitleY = useTransform(
         scrollYProgress,
         [0.57, 0.63],
-        ['4800%', '4rem']  // Ajustar posición vertical
+        ['850%', '6rem']  // Ajustar posición vertical
     );
 
 
-    const footerY = useTransform(scrollYProgress, [0.79, 0.85], ["100vh", "0vh"]);
-    const footerOpacity = useTransform(scrollYProgress, [0.80, 0.85], [0, 1]);
+    const footerY = useTransform(scrollYProgress, [0.68, 0.75], ["100vh", "0vh"]);
+    const footerOpacity = useTransform(scrollYProgress, [0.68, 0.75], [0, 1]);
 
 
 
@@ -365,7 +366,7 @@ export default function Home() {
                             transformOrigin: "60% 10%"
                         }}
                     >
-                        Una <motion.div className={styles.rotatingContainer}>
+                        Una  <motion.div className={styles.rotatingContainer}>
                             <RotatingText
                                 texts={['creativa', 'inteligente', 'poderosa', 'dinámica']}
                                 mainClassName={styles.rotatingText}
@@ -725,16 +726,18 @@ export default function Home() {
                         >
                             <div className={styles.projectContent}>
                                 <motion.h2>{project.title}</motion.h2>
-                                <motion.p>{project.description}</motion.p>
-                                <motion.div className={styles.projectImage}>
-                                    <img src={project.image} alt={project.title} />
-                                </motion.div>
-                                <div className={styles.projectTags}>
-                                    {project.tags.map((tag, idx) => (
-                                        <span key={idx} className={styles.tag}>
-                                            {tag}
-                                        </span>
-                                    ))}
+                                <div className={styles.projover}>
+                                    <motion.p>{project.description}</motion.p>
+                                    <motion.div className={styles.projectImage}>
+                                        <img src={project.image} alt={project.title} />
+                                    </motion.div>
+                                    <div className={styles.projectTags}>
+                                        {project.tags.map((tag, idx) => (
+                                            <span key={idx} className={styles.tag}>
+                                                {tag}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </motion.div>
@@ -853,19 +856,14 @@ export default function Home() {
                     left: 0,
                     width: '100%',
                     height: '100vh',
-                    zIndex: showContent ? 12 : -1, // Only show when active
-                    background: '#fff',
+                    zIndex: showContent ? 12 : -1,
+                    background: '#000',
                     pointerEvents: showContent ? 'auto' : 'none',
                 }}
             >
-                <motion.div
-                    className={styles.formContainer}
-                    style={{
-                        opacity: section10Opacity
-                    }}
-                >
+                <motion.div className={styles.ctaContainer}>
                     <motion.h1
-                        className={styles.formTitle}
+                        className={styles.ctaTitle}
                         style={{
                             scale: section10TitleScale,
                             rotate: section10TitleRotate,
@@ -874,46 +872,23 @@ export default function Home() {
                             transformOrigin: "left center",
                         }}
                     >
-                        Ahora<br />Contactanos
+                        Hagamos algo<br />increíble juntos...
                     </motion.h1>
-
-                    <form className={styles.contactForm}>
-                        {formFields.map((field, index) => (
-                            <motion.div
-                                key={index}
-                                className={styles.formGroup}
-                                style={{
-                                    y: formItemsY[index],
-                                    opacity: formItemsOpacity[index],
-                                    gridColumn: field.gridColumn
-                                }}
-                            >
-                                <label>{field.label}</label>
-                                {field.type === 'textarea' ? (
-                                    <textarea
-                                        placeholder={field.placeholder}
-                                        required={field.required}
-                                        rows={5}
-                                    />
-                                ) : field.type === 'select' ? (
-                                    <select required={field.required}>
-                                        <option value="">{field.placeholder}</option>
-                                        {field.options.map((option, i) => (
-                                            <option key={i} value={option}>
-                                                {option}
-                                            </option>
-                                        ))}
-                                    </select>
-                                ) : (
-                                    <input
-                                        type={field.type}
-                                        placeholder={field.placeholder}
-                                        required={field.required}
-                                    />
-                                )}
-                            </motion.div>
-                        ))}
-                    </form>
+                    <Link to="/contactanos" className={styles.ctaButton}>
+                        Contáctanos
+                        <motion.span
+                            className={styles.arrow}
+                            initial={{ x: 0 }}
+                            animate={{ x: 5 }}
+                            transition={{
+                                duration: 0.6,
+                                repeat: Infinity,
+                                repeatType: "reverse"
+                            }}
+                        >
+                            →
+                        </motion.span>
+                    </Link>
                 </motion.div>
             </motion.div>
             <motion.div className={styles.footerSection}
